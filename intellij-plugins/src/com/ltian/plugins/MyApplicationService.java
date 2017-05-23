@@ -17,7 +17,7 @@ import java.util.Map;
 @State(
         name = "MyProjectService",
         storages = {
-                @Storage(id = "com.ltian.plugin.sampls", file = "$PROJECT_FILE$"),
+//                @Storage(id = "com.ltian.plugin.sampls", file = "$PROJECT_FILE$"),
                 @Storage(file = "$PROJECT_CONFIG_DIR$/mySetting.xml", scheme = StorageScheme.DIRECTORY_BASED)
         }
 )

@@ -26,6 +26,20 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceInterface="com.ltian.plugins.MyApplicationService" serviceImplementation="com.ltian.plugins.MyApplicationService"></applicationService>
+    <fileTypeFactory implementation="com.ltian.plugins.files.MyFileTypeFactory"></fileTypeFactory>
+    <editorNotificationProvider implementation="com.ltian.plugins.notification.MyNotificationProvider"/>
+    <applicationConfigurable id="settings.my.samples.id"
+                             bundle="bundle.sample"
+                             groupId="language"
+                             nonDefaultProject="true"
+                             key="my.application.configuration.name"
+                             instance="com.ltian.plugins.configuration.MyApplicationConfigurable">
+      <configurable id="my.application.second.configuration.id"
+                    bundle="bundle.sample"
+                    key="my.application.second.configuration.name"
+                    instance="com.ltian.plugins.configuration.MySecondLevelConfigurable">
+      </configurable>
+    </applicationConfigurable>
     <!-- Add your extensions here -->
   </extensions>
 
