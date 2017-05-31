@@ -1,6 +1,9 @@
 package com.ltian.plugins;
 
+import com.intellij.mock.MockVirtualFile;
 import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.project.ProjectManager;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -9,7 +12,8 @@ import org.jetbrains.annotations.NotNull;
 public class MyApplicationComponent implements ApplicationComponent {
     @Override
     public void initComponent() {
-
+        MockVirtualFile mockVirtualFile = new MockVirtualFile("a.test");
+//        FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(mockVirtualFile, true);
     }
 
     @Override

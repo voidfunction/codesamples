@@ -27,6 +27,8 @@
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceInterface="com.ltian.plugins.MyApplicationService" serviceImplementation="com.ltian.plugins.MyApplicationService"></applicationService>
     <fileTypeFactory implementation="com.ltian.plugins.files.MyFileTypeFactory"></fileTypeFactory>
+    <fileEditorProvider implementation="com.ltian.plugins.files.MyFileEditorProvider"></fileEditorProvider>
+
     <editorNotificationProvider implementation="com.ltian.plugins.notification.MyNotificationProvider"/>
     <applicationConfigurable id="settings.my.samples.id"
                              bundle="bundle.sample"

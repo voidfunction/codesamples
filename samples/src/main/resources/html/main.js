@@ -2,7 +2,7 @@
 
 
 $(function () {
-    if (document.getElementById('FirebugLite')) {
+    if (!document.getElementById('FirebugLite')) {
         E = document['createElement' + 'NS'] && document.documentElement.namespaceURI;
         E = E ? document['createElement' + 'NS'](E, 'script') : document['createElement']('script');
         E['setAttribute']('id', 'FirebugLite');
@@ -12,4 +12,7 @@ $(function () {
         E = new Image;
         E['setAttribute']('src', 'https://getfirebug.com/' + '#startOpened');
     }
+    $('#mybutton').click(function () {
+        $('#myp').text(key);
+    })
 })

@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class MyHtmlUtils {
     public static void main(String[] args) throws Exception {
         CredentialsProvider provider = new BasicCredentialsProvider();
-        provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("admin", "Test"));
+        provider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("admin", "Pa$$w0rd1234"));
         final WebClient client = new WebClient();
         client.setCredentialsProvider(provider);
         String url = "https://spark2withblob.azurehdinsight.net/yarnui/jobhistory/logs/10.0.0.4/port/30050/container_e06_1495159635595_0019_05_000001/container_e06_1495159635595_0019_05_000001/livy";

@@ -1,6 +1,9 @@
-package my.sample;
+package my.sample.javafx;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -25,7 +28,20 @@ public class FxWebView extends Application {
         final String userDir = System.getProperty("user.dir");
         final String htmlIndexFile = "file:///" + userDir + "/src/main/resources/html/index.html";
 
-        win.setMember("key", "value");
+
+        webEngine.getLoadWorker().stateProperty().addListener(
+                new ChangeListener<Worker.State>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Worker.State> ov,
+                                        Worker.State oldState, Worker.State newState) {
+                        if (newState == Worker.State.SUCCEEDED) {
+                            JSObject win = (JSObject) webEngine.executeScript("window");
+                            win.setMember("key", "value");
+                            win.setMember("util", new Fzx);
+                        }
+                    }
+                }
+        );
         webEngine.load(htmlIndexFile);
         primaryStage.setScene(new Scene(view, 600, 600));
         primaryStage.show();
