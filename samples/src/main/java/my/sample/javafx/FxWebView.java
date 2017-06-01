@@ -27,7 +27,7 @@ public class FxWebView extends Application {
         final String userDir = System.getProperty("user.dir");
         final String htmlIndexFile = "file:///" + userDir + "/src/main/resources/html/index.html";
         final JSObject win = (JSObject) webEngine.executeScript("window");
-
+        final FxUtils utils = new FxUtils();
 
         webEngine.getLoadWorker().stateProperty().addListener(
                 new ChangeListener<Worker.State>() {
@@ -35,8 +35,13 @@ public class FxWebView extends Application {
                     public void changed(ObservableValue<? extends Worker.State> ov,
                                         Worker.State oldState, Worker.State newState) {
                         if (newState == Worker.State.SUCCEEDED) {
-                            win.setMember("key", "value");
-                            win.setMember("util", new FxUtils());
+                            if(win.getMember("key").toString().equalsIgnoreCase("undefined")) {
+                                win.setMember("key", "value");
+                            }
+
+                            if(win.getMember("util").toString().equalsIgnoreCase("undefined")) {
+                                win.setMember("util", utils);
+                            }
                         }
                     }
                 }
