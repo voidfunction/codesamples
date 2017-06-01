@@ -12,7 +12,12 @@ $(function () {
         E = new Image;
         E['setAttribute']('src', 'https://getfirebug.com/' + '#startOpened');
     }
+
     $('#mybutton').click(function () {
         $('#myp').text(key);
+        $('#myp2').text(util.getString());
+        $('#mybt2').click(function () {
+           util.openDefaultBrowser('https://www.baidu.com/');
+        });
     })
 })
