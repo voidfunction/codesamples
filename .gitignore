@@ -18,3 +18,10 @@ target/
 
 .gradle/
 build/
+
+
+#Eclipse files
+
+.classpath
+.project
+.settings/
