@@ -54,22 +54,18 @@ public class MyHttpServer {
             port = socketAddress.getPort();
             System.out.println(port);
             server = HttpServer.create(socketAddress, 10);
-            server.createContext("/applications", new HttpHandler() {
-                @Override
-                public void handle(HttpExchange httpExchange) throws IOException {
-                    String message = "<button>my click</button>";
-                    try {
-                        httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
-                        httpExchange.sendResponseHeaders(200, message.length());
-                        // Content-Type: text/html; charset=utf-8
-                        httpExchange.getResponseHeaders().add("Content-Type","text/html");
-                        OutputStream stream = httpExchange.getResponseBody();
-                        stream.write(message.getBytes());
-                        stream.close();
-                    } catch (IOException e) {
-                    }
-                }
+            server.createContext("/applications", (httpExchange) -> {
+                String message = "<button>my click</button>";
+                // access problem
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+                httpExchange.sendResponseHeaders(200, message.length());
+                // Content-Type: text/html; charset=utf-8
+                httpExchange.getResponseHeaders().add("Content-Type","text/html");
+                OutputStream stream = httpExchange.getResponseBody();
+                stream.write(message.getBytes());
+                stream.close();
             });
+
             executorService = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
             server.setExecutor(executorService);
             server.start();
