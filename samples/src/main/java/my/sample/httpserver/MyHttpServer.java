@@ -3,11 +3,15 @@ package my.sample.httpserver;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import sun.security.krb5.internal.crypto.Des;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -47,13 +51,23 @@ public class MyHttpServer {
 
         try {
             // try to get a random socket port
-            ServerSocket s = new ServerSocket(27245);
+            ServerSocket s = new ServerSocket(1234);
             s.close();
 
             InetSocketAddress socketAddress = new InetSocketAddress(s.getLocalPort());
             port = socketAddress.getPort();
             System.out.println(port);
             server = HttpServer.create(socketAddress, 10);
+            server.createContext("/actions", (httpExchange -> {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+                if ( Desktop.isDesktopSupported()) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://www.baidu.com"));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                }
+                    }));
             server.createContext("/applications", (httpExchange) -> {
                 String message = "<button>my click</button>";
                 // access problem
