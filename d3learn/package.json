@@ -1,0 +1,15 @@
+{
+    "name": "d3-learn",
+    "version": "0.1.0",
+    "description": "test",
+    "repository": {
+        "type": "git"
+    },
+
+    "dependencies": {
+        "d3": "3.x"
+    },
+    "devDependencies": {
+        "uglify-js": "2.x"
+    }
+}
