@@ -5,12 +5,16 @@
     "repository": {
         "type": "git"
     },
-
     "dependencies": {
         "d3": "3.x",
-        "jquery": "1.x"
+        "jquery": "1.x",
+        "dagre-d3": "^0.4.17"
     },
     "devDependencies": {
         "uglify-js": "2.x"
-    }
+    },
+    "license": "MIT",
+    "_npmVersion": "3.3.9",
+    "_nodeVersion": "5.0.0",
+    "readme": "Error: No README data found!"
 }
