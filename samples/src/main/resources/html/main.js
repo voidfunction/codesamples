@@ -2,7 +2,7 @@
 
 
 $(function () {
-    if (!document.getElementById('FirebugLite')) {
+    if (document.getElementById('FirebugLite')) {
         E = document['createElement' + 'NS'] && document.documentElement.namespaceURI;
         E = E ? document['createElement' + 'NS'](E, 'script') : document['createElement']('script');
         E['setAttribute']('id', 'FirebugLite');
@@ -19,6 +19,13 @@ $(function () {
     })
 
     $('#mybt2').dblclick(function () {
-        util.openDefaultBrowser('https://www.baidu.com/');
+        // util.openDefaultBrowser('https://www.baidu.com/');
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.timeout = 60 * 100;
+        xmlHttp.open('GET', "http://localhost:1234/applications", true);
+        // xmlHttp.setRequestHeader("Access-Control-Request-Headers", "*");
+        xmlHttp.setRequestHeader('http-type', 'spark');
+        xmlHttp.setRequestHeader('cluster-name', 'cluster');
+        xmlHttp.send(null);
     });
 })

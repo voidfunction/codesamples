@@ -28,6 +28,7 @@ public class FxWebView extends Application {
         final String htmlIndexFile = "file:///" + userDir + "/src/main/resources/html/index.html";
         final JSObject win = (JSObject) webEngine.executeScript("window");
         final FxUtils utils = new FxUtils();
+        final String myurl = "file:///C:\\Users\\ltian\\project\\azure-tools-for-java/Utils/hdinsight-node-common/resources/htmlResources/hdinsight/job/html/index.html?clusterName=spark2withblob&port=29104&engineType=javafx";
 
         webEngine.getLoadWorker().stateProperty().addListener(
                 new ChangeListener<Worker.State>() {
@@ -47,7 +48,7 @@ public class FxWebView extends Application {
                 }
         );
 
-        webEngine.load(htmlIndexFile);
+        webEngine.load(myurl);
         primaryStage.setScene(new Scene(view, 600, 600));
         primaryStage.show();
     }

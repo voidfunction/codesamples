@@ -1,8 +1,11 @@
 package com.ltian.plugins.files;
 
+import com.teamdev.jxbrowser.chromium.*;
+import com.teamdev.jxbrowser.chromium.javafx.BrowserView;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
@@ -12,8 +15,7 @@ import netscape.javascript.JSObject;
  */
 public class MyFxPanel extends JFXPanel {
 
-    WebView webView;
-    private WebEngine webEngine;
+    BrowserView webView;
 
     public MyFxPanel() {
         init(this);
@@ -22,16 +24,25 @@ public class MyFxPanel extends JFXPanel {
     private void init(final MyFxPanel fxPanel) {
         Platform.setImplicitExit(false);
         Platform.runLater(()-> {
-            webView = new WebView();
-            webEngine = webView.getEngine();
-            webEngine.setJavaScriptEnabled(true);
-            JSUtils utils = new JSUtils();
-            JSObject win = (JSObject) webEngine.executeScript("window");
-            win.setMember("Utils", (Object)utils);
-            win.setMember("testa","value");
-            fxPanel.setScene(new Scene(webView));
+            com.teamdev.jxbrowser.chromium.Browser browser = new com.teamdev.jxbrowser.chromium.Browser();
+            webView = new BrowserView(browser);
 
-            webEngine.load("file:///E:/html/index.html");
+
+            BorderPane borderPane = new BorderPane();
+            borderPane.setCenter(webView);
+            Scene scene = new Scene(borderPane, 7, 5);
+            fxPanel.setScene(scene);
+            browser.loadURL("https://www.google.com/");
+//            webView = new WebView();
+//            webEngine = webView.getEngine();
+//            webEngine.setJavaScriptEnabled(true);
+//            JSUtils utils = new JSUtils();
+//            JSObject win = (JSObject) webEngine.executeScript("window");
+//            win.setMember("Utils", (Object)utils);
+//            win.setMember("testa","value");
+//            fxPanel.setScene(new Scene(webView));
+//
+//            webEngine.load("file:///E:/html/index.html");
         });
     }
 }

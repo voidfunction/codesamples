@@ -25,3 +25,5 @@ build/
 .classpath
 .project
 .settings/
+
+node_modules/

@@ -14,13 +14,13 @@ public class MyFileEditorProvider implements FileEditorProvider {
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
 
-        return file.getExtension().equalsIgnoreCase("test");
+        return file.getExtension().equalsIgnoreCase("myExtension");
     }
 
     @NotNull
     @Override
     public FileEditor createEditor(@NotNull Project project, @NotNull VirtualFile file) {
-        return new MyFileEditor();
+        return new MyFileEditor(project, file);
     }
 
     @NotNull

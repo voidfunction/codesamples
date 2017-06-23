@@ -29,7 +29,7 @@
     <fileTypeFactory implementation="com.ltian.plugins.files.MyFileTypeFactory"></fileTypeFactory>
     <fileEditorProvider implementation="com.ltian.plugins.files.MyFileEditorProvider"></fileEditorProvider>
 
-    <editorNotificationProvider implementation="com.ltian.plugins.notification.MyNotificationProvider"/>
+    <!--<editorNotificationProvider implementation="com.ltian.plugins.notification.MyNotificationProvider"/>-->
     <applicationConfigurable id="settings.my.samples.id"
                              bundle="bundle.sample"
                              groupId="language"

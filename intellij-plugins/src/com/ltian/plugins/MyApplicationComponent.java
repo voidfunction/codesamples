@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 public class MyApplicationComponent implements ApplicationComponent {
     @Override
     public void initComponent() {
-        MockVirtualFile mockVirtualFile = new MockVirtualFile("a.test");
 //        FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(mockVirtualFile, true);
     }
 

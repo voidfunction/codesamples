@@ -16,20 +16,25 @@
 
     <repositories>
         <repository>
-            <id>scalaz</id>
-            <name>scalaz</name>
-            <url>http://dl.bintray.com/scalaz/releases</url>
+            <id>public</id>
+            <!--<layout>p2</layout>-->
+            <url>http://40.74.113.109:8081/nexus/content/groups/public/</url>
         </repository>
-        <repository>
-            <id>mvnrepository</id>
-            <name>Derbysoft Release Repository</name>
-            <url>http://search.maven.org/remotecontent?filepath=</url>
-        </repository>
-        <repository>
-            <id>jahia</id>
-            <name>mvnrepository</name>
-            <url>http://maven.jahia.org/maven2</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>scalaz</id>-->
+            <!--<name>scalaz</name>-->
+            <!--<url>http://dl.bintray.com/scalaz/releases</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>mvnrepository</id>-->
+            <!--<name>Derbysoft Release Repository</name>-->
+            <!--<url>http://search.maven.org/remotecontent?filepath=</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>jahia</id>-->
+            <!--<name>mvnrepository</name>-->
+            <!--<url>http://maven.jahia.org/maven2</url>-->
+        <!--</repository>-->
     </repositories>
 
     <pluginRepositories>
@@ -40,6 +45,7 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <
     <build>
         <pluginManagement>
             <plugins>
@@ -197,6 +203,12 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>args4j</groupId>
+            <artifactId>args4j</artifactId>
+            <version>2.33</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 </project>

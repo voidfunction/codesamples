@@ -28,7 +28,7 @@ public class MyFileType implements FileType {
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "test";
+        return "myExtension";
     }
 
     @Nullable
@@ -44,7 +44,7 @@ public class MyFileType implements FileType {
 
     @Override
     public boolean isReadOnly() {
-        return false;
+        return true;
     }
 
     @Nullable

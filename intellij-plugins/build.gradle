@@ -15,6 +15,9 @@ buildscript {
     ext.kotlin_version = '1.0.6'
 
     repositories {
+        maven {
+            url uri('C:/Users/ltian/.m2/repository')
+        }
         mavenCentral()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
@@ -33,6 +36,7 @@ buildscript {
 //apply plugin: 'java'
 //apply plugin: 'kotlin2js'
 repositories {
+    mavenLocal()
     mavenCentral()
     flatDir { dirs 'lib' }
 }
@@ -75,5 +79,12 @@ dependencies {
 //    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     // https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer
     compile group: 'com.googlecode.owasp-java-html-sanitizer', name: 'owasp-java-html-sanitizer', version: '20160413.1'
+    compile group: 'com.ltian.test', name : 'jxbrowser', version: '1.0-SNAPSHOT'
+    compile group: 'com.ltian.test', name : 'jxbrowser-license', version: '1.0-SNAPSHOT'
+    compile group: 'com.ltian.test', name : 'jxbrowser-win32', version: '1.0-SNAPSHOT'
+    compile group: 'com.ltian.test', name : 'jxbrowser-linux64', version: '1.0-SNAPSHOT'
+    compile group: 'com.ltian.test', name : 'jxbrowser-mac', version: '1.0-SNAPSHOT'
+//    compile group: 'com.ltian.test', name : 'jxbrowser', version: '1.0-SNAPSHOT'
+//    compile fileTree(dir : 'D:/jfxbrowser/lib/', include : ['jxbrowser-6.14.jar', 'license.jar', 'jxbrowser-win32-6.14.jar'])
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
