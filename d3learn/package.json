@@ -8,7 +8,8 @@
     "dependencies": {
         "d3": "3.x",
         "jquery": "1.x",
-        "dagre-d3": "^0.4.17"
+        "dagre-d3": "^0.4.17",
+        "lodash": "^4.17.4"
     },
     "devDependencies": {
         "uglify-js": "2.x"
